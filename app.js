@@ -26,6 +26,7 @@ firebase.auth().onAuthStateChanged(function(user) {
       var uid = user.uid;
       var providerData = user.providerData;
       console.log(displayName);
+      console.log(user.uid);
       // ...
     } else {
       // User is signed out.
@@ -48,4 +49,10 @@ firebase.auth().onAuthStateChanged(function(user) {
     }
 });
 
+const userExists = (userId) => {
 
+} 
+
+const addUser = () => {
+
+}
