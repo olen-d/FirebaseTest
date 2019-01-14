@@ -26,12 +26,17 @@ firebase.auth().onAuthStateChanged(function(user) {
       let emailVerified = user.emailVerified;
       let photoURL = user.photoURL;
       let isAnonymous = user.isAnonymous;
-      let uid = user.uid;
-      hGlobal["uidF"] = uid;
+      let userId = user.uid;
+      hGlobal["userId"] = uid;
       let providerData = user.providerData;
       console.log(displayName);
       console.log(user.uid);
-      addUser(uid);
+      const userData = {
+          name: displayName,
+          email: email,
+          photo: photoURL
+      }
+      addUser(userId,userData);
            // ...
     } else {
       // User is signed out.
@@ -62,9 +67,9 @@ const userExists = (userId) => {
     
 } 
 
-const addUser = (userId) => {
+const addUser = (userId,userData) => {
     if(!userExists(userId)) {
-        usersRef.push(hGlobal.uidF, (error) => {
+        db.ref(`/users/${userId}`).set(userData, (error) => {
             (error ? console.log("Errors handled " + error) : console.log("User successfully added to the database. "));
         });
     }   
