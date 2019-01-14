@@ -16,7 +16,7 @@ let token = "";
 let provider = new firebase.auth.GithubAuthProvider();
 
 let usersRef = db.ref("/users")
-const hGlobal = new object ();
+const hGlobal = new object();
 
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
