@@ -15,19 +15,24 @@ let token = "";
 //let user = "";
 let provider = new firebase.auth.GithubAuthProvider();
 
+let usersRef = db.ref("/users")
+const hGlobal = new object ();
+
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       // User is signed in.
-      var displayName = user.displayName;
-      var email = user.email;
-      var emailVerified = user.emailVerified;
-      var photoURL = user.photoURL;
-      var isAnonymous = user.isAnonymous;
-      var uid = user.uid;
-      var providerData = user.providerData;
+      let displayName = user.displayName;
+      let email = user.email;
+      let emailVerified = user.emailVerified;
+      let photoURL = user.photoURL;
+      let isAnonymous = user.isAnonymous;
+      let uid = user.uid;
+      hGlobal["uidF"] = uid;
+      let providerData = user.providerData;
       console.log(displayName);
       console.log(user.uid);
-      // ...
+      addUser(uid);
+           // ...
     } else {
       // User is signed out.
         firebase.auth().signInWithRedirect(provider);
@@ -50,9 +55,17 @@ firebase.auth().onAuthStateChanged(function(user) {
 });
 
 const userExists = (userId) => {
-
+    usersRef.child(userId).once("value", (snapshot => {
+        let exists = (snapshot.val() !== null);
+        return exists;
+    }))
+    
 } 
 
-const addUser = () => {
-
+const addUser = (userId) => {
+    if(!userExists(userId)) {
+        usersRef.push(hGlobal.uidF, (error) => {
+            (error ? console.log("Errors handled " + error) : console.log("User successfully added to the database. "));
+        });
+    }   
 }
