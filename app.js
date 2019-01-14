@@ -12,7 +12,7 @@ firebase.initializeApp(config);
 db = firebase.database();
 
 let token = "";
-let user = "";
+//let user = "";
 let provider = new firebase.auth.GithubAuthProvider();
 
 firebase.auth().onAuthStateChanged(function(user) {
@@ -33,7 +33,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         firebase.auth().getRedirectResult().then(function(result) {
             if (result.credential) {
                 token = result.credential.accessToken;
-                user = result.user;
+                var user = result.user;
             }
         }).catch(function(error) {
             let c = error.code;
