@@ -27,7 +27,7 @@ firebase.auth().onAuthStateChanged(function(user) {
       let photoURL = user.photoURL;
       let isAnonymous = user.isAnonymous;
       let userId = user.uid;
-      hGlobal["userId"] = uid;
+      hGlobal["userId"] = userId;
       let providerData = user.providerData;
       console.log(displayName);
       console.log(user.uid);
