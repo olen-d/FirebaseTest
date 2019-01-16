@@ -32,7 +32,7 @@ firebase.auth().getRedirectResult().then(function(result) {
 // Start a sign in process for an unauthenticated user.
 let provider = new firebase.auth.TwitterAuthProvider();
 console.log("_____________", user);
-break;
+return;
 firebase.auth().onAuthStateChanged(function(user) {
     if (hGlobal.user) {
         // User is signed in
