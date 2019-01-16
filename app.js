@@ -97,3 +97,7 @@ const addUser = (userId,userData) => {
         });
     }    
 }
+
+console.log("--T-- ", hGlobal.token);
+console.log("--S--", hGlobal.secret)
+console.log(hGlobal.user);
