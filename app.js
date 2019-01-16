@@ -16,7 +16,7 @@ const hGlobal = new Object();
 let usersRef = db.ref("/users")
 
 // Using a redirect
-/*
+
 firebase.auth().getRedirectResult().then(function(result) {
     if (result.credential) {
       
@@ -27,7 +27,7 @@ firebase.auth().getRedirectResult().then(function(result) {
     hGlobal["user"] = result.user;
     console.log(result);
   });
-  */
+  
   
 // Start a sign in process for an unauthenticated user.
 let provider = new firebase.auth.TwitterAuthProvider();
