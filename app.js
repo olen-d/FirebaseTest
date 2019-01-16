@@ -52,7 +52,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
         console.log("--T-- ", hGlobal.token);
         console.log("--S-- ", hGlobal.secret);
-        console.log("--I-- ", hglobal.userTwitterId);
+        console.log("--I-- ", hGlobal.userTwitterId);
         console.log("--U-- ", hGlobal.username);
         console.log(hGlobal.user);
 
