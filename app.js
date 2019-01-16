@@ -14,6 +14,7 @@ let db = firebase.database();
 const hGlobal = new Object();
 
 let usersRef = db.ref("/users")
+let provider = new firebase.auth.TwitterAuthProvider();
 
 // Using a redirect
 
@@ -31,11 +32,11 @@ firebase.auth().getRedirectResult().then(function(result) {
       console.log(e.message);
       console.log(e.credential);
   });
-  
-  
-// Start a sign in process for an unauthenticated user.
-let provider = new firebase.auth.TwitterAuthProvider();
 
+  console.log ("----", hGlobal.user)
+// Start a sign in process for an unauthenticated user.
+
+/*
 firebase.auth().onAuthStateChanged(function(user) {
     if (hGlobal.user) {
         // User is signed in
@@ -103,7 +104,7 @@ console.log("______user_______", hGlobal.user);
 
 console.log(hGlobal);
 console.log(hGlobal.user);
-
+*/
 
 // Ye Olde Stuffe
 /*
