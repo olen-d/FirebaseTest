@@ -96,7 +96,7 @@ const addUser = (userId,userData) => {
     }    
 }
 console.log("______user_______", hGlobal.user);
-debugger;
+
 console.log(hGlobal);
 console.log(hGlobal.user);
 
