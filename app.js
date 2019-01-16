@@ -13,11 +13,6 @@ let db = firebase.database();
 
 const hGlobal = new Object();
 
-// Initialize Firebase
-
-firebase.initializeApp(configFireBase);
-
-let db = firebase.database();    
 let usersRef = db.ref("/users")
 
 // Using a redirect
@@ -29,6 +24,7 @@ firebase.auth().getRedirectResult().then(function(result) {
         hGlobal["secret"] = result.credential.secret;
     }
     hGlobal["user"] = result.user;
+    console.log(result);
   });
   
 // Start a sign in process for an unauthenticated user.
@@ -67,6 +63,7 @@ firebase.auth().onAuthStateChanged(function(user) {
                 hGlobal["token"] = result.credential.accessToken;
                 hGlobal["secret"] = result.credential.secret;
                 hGlobal["user"]  = result.user;
+                console.log(result);
             }
         }).catch(function(error) {
             let c = error.code;
@@ -97,6 +94,8 @@ const addUser = (userId,userData) => {
     }    
 }
 
+console.log(hGlobal);
+console.log(hGlobal.user);
 
 
 // Ye Olde Stuffe
