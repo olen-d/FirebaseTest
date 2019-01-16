@@ -17,7 +17,7 @@ let usersRef = db.ref("/users")
 let provider = new firebase.auth.TwitterAuthProvider();
 
 // Using a redirect
-
+firebase.auth().signInWithRedirect(provider);
 firebase.auth().getRedirectResult().then(function(result) {
     if (result.credential) {
       
