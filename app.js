@@ -42,7 +42,7 @@ firebase.auth().getRedirectResult().then(function(result) {
 firebase.auth().onAuthStateChanged(function(user) {
     if (hGlobal.user) {
         // User is signed in
-        hGlobal["userTwitterId"] = user.id;
+        hGlobal["userTwitterId"] = user.providerData[0].uid;
         hGlobal["displayName"] = user.displayName;
         hGlobal["userName"] = user.username;
         hGlobal["photoURL"] = user.photoURL;
