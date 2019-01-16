@@ -25,7 +25,11 @@ firebase.auth().getRedirectResult().then(function(result) {
         hGlobal["secret"] = result.credential.secret;
     }
     hGlobal["user"] = result.user;
-    console.log(result);
+    //console.log(result);
+  }).catch((e) => {
+      console.log(e.code);
+      console.log(e.message);
+      console.log(e.credential);
   });
   
   
@@ -65,7 +69,7 @@ firebase.auth().onAuthStateChanged(function(user) {
                 hGlobal["token"] = result.credential.accessToken;
                 hGlobal["secret"] = result.credential.secret;
                 hGlobal["user"]  = result.user;
-                console.log(result);
+                //console.log(result);
             }
         }).catch(function(error) {
             let c = error.code;
