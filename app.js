@@ -57,7 +57,7 @@ firebase.auth().onAuthStateChanged(function(user) {
             }
             addUser(hGlobal.userId,userData);   
         }
-    } else {
+    } /*else {
       // User is signed out
         firebase.auth().signInWithRedirect(provider);
         firebase.auth().getRedirectResult().then(function(result) {
@@ -77,7 +77,7 @@ firebase.auth().onAuthStateChanged(function(user) {
             console.log(e);
             console.log(cr);
         });
-    }
+    } */
 });
 
 const userExists = (userId) => {
