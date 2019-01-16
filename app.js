@@ -42,14 +42,18 @@ firebase.auth().getRedirectResult().then(function(result) {
 firebase.auth().onAuthStateChanged(function(user) {
     if (hGlobal.user) {
         // User is signed in
+        hglobal["userTwitterId"] = user.id;
         hGlobal["displayName"] = user.displayName;
+        hglobal["userName"] = user.username;
         hGlobal["photoURL"] = user.photoURL;
         hGlobal["userId"] = user.uid;
 
         let providerData = user.providerData;
 
         console.log("--T-- ", hGlobal.token);
-        console.log("--S--", hGlobal.secret)
+        console.log("--S-- ", hGlobal.secret);
+        console.log("--I-- ", hglobal.userTwitterId);
+        console.log("--U-- ", hGlobal.username);
         console.log(hGlobal.user);
 
         // See if the user exists
