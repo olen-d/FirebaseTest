@@ -44,6 +44,10 @@ firebase.auth().onAuthStateChanged(function(user) {
 
         let providerData = user.providerData;
 
+        console.log("--T-- ", hGlobal.token);
+        console.log("--S--", hGlobal.secret)
+        console.log(hGlobal.user);
+
         // See if the user exists
         if (userExists(hGlobal.userId)) {
             const lastLogin = { lastLogin: firebase.database.ServerValue.TIMESTAMP };
@@ -98,6 +102,6 @@ const addUser = (userId,userData) => {
     }    
 }
 
-console.log("--T-- ", hGlobal.token);
-console.log("--S--", hGlobal.secret)
-console.log(hGlobal.user);
+//console.log("--T-- ", hGlobal.token);
+//console.log("--S--", hGlobal.secret)
+//console.log(hGlobal.user);
