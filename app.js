@@ -31,13 +31,12 @@ firebase.auth().getRedirectResult().then(function(result) {
         // For accessing the Twitter API.
         hGlobal["token"] = result.credential.accessToken;
         hGlobal["secret"] = result.credential.secret;
-    }
-    hGlobal["user"] = result.user;
-    hGlobal["userTwitterId"] = hGlobal.user.providerData[0].uid;
-    hGlobal["displayName"] = hGlobal.user.displayName;
-    hGlobal["userName"] = hGlobal.user.username;
-    hGlobal["photoURL"] = hGlobal.user.photoURL;
-    hGlobal["userId"] = hGlobal.user.uid;
+        hGlobal["user"] = result.user;
+        hGlobal["userTwitterId"] = hGlobal.user.providerData[0].uid;
+        hGlobal["displayName"] = hGlobal.user.displayName;
+        hGlobal["userName"] = hGlobal.user.username;
+        hGlobal["photoURL"] = hGlobal.user.photoURL;
+        hGlobal["userId"] = hGlobal.user.uid;
 
 
         console.log("--T1-- ", hGlobal.token);
@@ -45,6 +44,8 @@ firebase.auth().getRedirectResult().then(function(result) {
         console.log("--I1-- ", hGlobal.userTwitterId);
         console.log("--U1-- ", hGlobal.userId);
         //console.log(hGlobal.user);
+    }
+    
   });
 
 //let user = hGlobal.user;
