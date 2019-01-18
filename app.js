@@ -33,7 +33,7 @@ if(user) {
     console.log("nope");
     console.log(user);
 }
-debugger;
+// debugger;
 // console.log (user);
 // debugger;
 firebase.auth().onAuthStateChanged(function(user) {
