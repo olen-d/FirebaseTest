@@ -26,7 +26,7 @@ let provider = new firebase.auth.TwitterAuthProvider();
   
 // Start a sign in process for an unauthenticated user.
 
-let user = hGlobal.user;
+//let user = hGlobal.user;
 if(user) {
     console.log("user")
 } else {
@@ -37,7 +37,7 @@ debugger;
 // console.log (user);
 // debugger;
 firebase.auth().onAuthStateChanged(function(user) {
-    if (hGlobal.user) {
+    if (user) {
         // User is signed in
         hGlobal["userTwitterId"] = user.providerData[0].uid;
         hGlobal["displayName"] = user.displayName;
