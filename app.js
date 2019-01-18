@@ -31,6 +31,7 @@ if(user) {
     console.log("user")
 } else {
     console.log("nope");
+    console.log(user);
 }
 debugger;
 // console.log (user);
