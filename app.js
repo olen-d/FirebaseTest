@@ -1,7 +1,7 @@
 
 
 // Initialize Firebase
-var config = {
+let config = {
     apiKey: "AIzaSyBzH6JdvXccH6gtM3r0fjpLueV_zp_LOlE",
     authDomain: "fir-test-6f4f0.firebaseapp.com",
     databaseURL: "https://fir-test-6f4f0.firebaseio.com",
@@ -29,14 +29,15 @@ firebase.auth().getRedirectResult().then(function(result) {
         hGlobal["token"] = result.credential.accessToken;
         hGlobal["secret"] = result.credential.secret;
     }
-    hGlobal["userTwitterId"] = user.providerData[0].uid;
-    hGlobal["displayName"] = user.displayName;
-    hGlobal["userName"] = user.username;
-    hGlobal["photoURL"] = user.photoURL;
-    hGlobal["userId"] = user.uid;
+    hGlobal["user"] = result.user;
+    hGlobal["userTwitterId"] = hGlobal.user.providerData[0].uid;
+    hGlobal["displayName"] = hGlobal.user.displayName;
+    hGlobal["userName"] = hGlobal.user.username;
+    hGlobal["photoURL"] = hGlobal.user.photoURL;
+    hGlobal["userId"] = hGlobal.user.uid;
 
 
-    console.log("--T1-- ", hGlobal.token);
+        console.log("--T1-- ", hGlobal.token);
         console.log("--S1--", hGlobal.secret);
         console.log("--I1-- ", hGlobal.userTwitterId);
         console.log("--U1-- ", hGlobal.userId);
@@ -45,7 +46,7 @@ firebase.auth().getRedirectResult().then(function(result) {
   
 // Start a sign in process for an unauthenticated user.
 
-
+let user = hGlobal.user;
 firebase.auth().onAuthStateChanged(function(user) {
     if (hGlobal.user) {
         // User is signed in
