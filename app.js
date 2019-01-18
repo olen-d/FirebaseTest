@@ -47,6 +47,8 @@ firebase.auth().getRedirectResult().then(function(result) {
 // Start a sign in process for an unauthenticated user.
 
 let user = hGlobal.user;
+console.log (user);
+debugger;
 firebase.auth().onAuthStateChanged(function(user) {
     if (hGlobal.user) {
         // User is signed in
