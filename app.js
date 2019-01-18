@@ -55,8 +55,8 @@ firebase.auth().getRedirectResult().then(function(result) {
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         // User is signed in
-        hGlobal["token"] = result.credential.accessToken;
-        hGlobal["secret"] = result.credential.secret;
+        //hGlobal["token"] = result.credential.accessToken;
+        //hGlobal["secret"] = result.credential.secret;
         hGlobal["userTwitterId"] = user.providerData[0].uid;
         hGlobal["displayName"] = user.displayName;
         hGlobal["userName"] = user.username;
