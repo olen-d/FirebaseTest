@@ -29,11 +29,18 @@ firebase.auth().getRedirectResult().then(function(result) {
         hGlobal["token"] = result.credential.accessToken;
         hGlobal["secret"] = result.credential.secret;
     }
-    hGlobal["user"] = result.user;
+    hGlobal["userTwitterId"] = user.providerData[0].uid;
+    hGlobal["displayName"] = user.displayName;
+    hGlobal["userName"] = user.username;
+    hGlobal["photoURL"] = user.photoURL;
+    hGlobal["userId"] = user.uid;
 
-    console.log("--T-- ", hGlobal.token);
-        console.log("--S--", hGlobal.secret)
-        console.log(hGlobal.user);
+
+    console.log("--T1-- ", hGlobal.token);
+        console.log("--S1--", hGlobal.secret);
+        console.log("--I1-- ", hGlobal.userTwitterId);
+        console.log("--U1-- ", hGlobal.userId);
+        //console.log(hGlobal.user);
   });
   
 // Start a sign in process for an unauthenticated user.
@@ -54,7 +61,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         console.log("--S-- ", hGlobal.secret);
         console.log("--I-- ", hGlobal.userTwitterId);
         console.log("--U-- ", hGlobal.userId);
-        //onsole.log(hGlobal.user);
+        //console.log(hGlobal.user);
 
         // See if the user exists
         if (userExists(hGlobal.userId)) {
