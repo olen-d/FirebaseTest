@@ -27,12 +27,7 @@ let provider = new firebase.auth.TwitterAuthProvider();
 // Start a sign in process for an unauthenticated user.
 
 //let user = hGlobal.user;
-if(user) {
-    console.log("user")
-} else {
-    console.log("nope");
-    console.log(user);
-}
+
 // debugger;
 // console.log (user);
 // debugger;
