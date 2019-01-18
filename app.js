@@ -53,6 +53,7 @@ firebase.auth().getRedirectResult().then(function(result) {
 // debugger;
 // console.log (user);
 // debugger;
+console.log("---0000--- ",user);
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         // User is signed in
