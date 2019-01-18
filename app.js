@@ -25,6 +25,27 @@ let provider = new firebase.auth.TwitterAuthProvider();
 
   
 // Start a sign in process for an unauthenticated user.
+firebase.auth().getRedirectResult().then(function(result) {
+    if (result.credential) {
+      
+        // For accessing the Twitter API.
+        hGlobal["token"] = result.credential.accessToken;
+        hGlobal["secret"] = result.credential.secret;
+    }
+    hGlobal["user"] = result.user;
+    hGlobal["userTwitterId"] = hGlobal.user.providerData[0].uid;
+    hGlobal["displayName"] = hGlobal.user.displayName;
+    hGlobal["userName"] = hGlobal.user.username;
+    hGlobal["photoURL"] = hGlobal.user.photoURL;
+    hGlobal["userId"] = hGlobal.user.uid;
+
+
+        console.log("--T1-- ", hGlobal.token);
+        console.log("--S1--", hGlobal.secret);
+        console.log("--I1-- ", hGlobal.userTwitterId);
+        console.log("--U1-- ", hGlobal.userId);
+        //console.log(hGlobal.user);
+  });
 
 //let user = hGlobal.user;
 
@@ -102,27 +123,7 @@ const addUser = (userId,userData) => {
     }    
 }
 
-firebase.auth().getRedirectResult().then(function(result) {
-    if (result.credential) {
-      
-        // For accessing the Twitter API.
-        hGlobal["token"] = result.credential.accessToken;
-        hGlobal["secret"] = result.credential.secret;
-    }
-    hGlobal["user"] = result.user;
-    hGlobal["userTwitterId"] = hGlobal.user.providerData[0].uid;
-    hGlobal["displayName"] = hGlobal.user.displayName;
-    hGlobal["userName"] = hGlobal.user.username;
-    hGlobal["photoURL"] = hGlobal.user.photoURL;
-    hGlobal["userId"] = hGlobal.user.uid;
 
-
-        console.log("--T1-- ", hGlobal.token);
-        console.log("--S1--", hGlobal.secret);
-        console.log("--I1-- ", hGlobal.userTwitterId);
-        console.log("--U1-- ", hGlobal.userId);
-        //console.log(hGlobal.user);
-  });
 
 //console.log("--T-- ", hGlobal.token);
 //console.log("--S--", hGlobal.secret)
