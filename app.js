@@ -53,8 +53,8 @@ firebase.auth().onAuthStateChanged(function(user) {
         console.log("--T-- ", hGlobal.token);
         console.log("--S-- ", hGlobal.secret);
         console.log("--I-- ", hGlobal.userTwitterId);
-        console.log("--U-- ", hGlobal.username);
-        console.log(hGlobal.user);
+        console.log("--U-- ", hGlobal.userId);
+        //onsole.log(hGlobal.user);
 
         // See if the user exists
         if (userExists(hGlobal.userId)) {
